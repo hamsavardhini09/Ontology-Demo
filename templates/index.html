@@ -1,0 +1,41 @@
+<!--index page [page-1]-->
+<html>
+<style>
+.gnodes {
+  stroke: #fff;
+  stroke-width: 1.5px;
+  font: 10px sans-serif;
+	color: red;
+		}
+.link {
+  stroke: #000;
+  stroke-opacity: 1.0;
+	  }
+body{
+	background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)), url("static/graph5.png");
+	background-attachment: inherit;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+    background-size: cover;
+	}
+</style>
+<h1 align="center">Ontology Search in Neo4j !</h1>
+<script>function serverrefresh(){
+window.location.reload(true);
+}</script>
+<form method='post'>
+  Search keyword: <input type="text" name="term">
+  <br><br>
+  <button type="submit" onlclick="serverrefresh()">Submit</button>
+</form>
+{% if keyword %}
+<h2 align="center">Results</h2>
+<a href="{{url_for('graphview')}}"> Click for graph View and summarized statements</a>
+<p><b>Statements</b></p>
+<table border="1">
+{% for item in keyword.ss %}
+  <tr><td>{{ item }}</td></tr>
+{% endfor %}
+</table>
+{% endif %}
+</html>

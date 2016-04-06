@@ -1,0 +1,18 @@
+<!--Page where Neo4j graph view, summarization along with prediction results can be seen[page-3]-->
+<!doctype html>
+<html>
+<h1 align="center">Summary page !</h1>
+{% if keyword %}
+<table border ="1">
+<thead>
+<th>Summary 1</th>
+<th>Summary 2</th>
+</thead>
+<tbody>
+<tr>
+<td width="50%" valign="top">{{keyword.sum1}}</td><td width="50%" valign="top">{{keyword.sum2}}</td>
+</tr>
+</tbody>
+</table>
+{% endif %}
+</html>
